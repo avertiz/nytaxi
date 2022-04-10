@@ -23,7 +23,9 @@ def upload_to_gcs(bucket_name, destination_blob_name, **kwargs):
     blob.upload_from_string(data.to_csv(index=False), 'text/csv')
 
 def load_to_bq_staging():
-    pass
+    # First clear stageing table
+    client = bigquery.Client()
+    sql = f'DELETE FROM `project.dataset.table` WHERE true;'
 
 with DAG(
     dag_id="download_taxi_to_gcs_and_bq",
