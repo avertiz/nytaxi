@@ -3,7 +3,7 @@ import requests
 from pprint import pprint
 
 def update_dim_table(table_name, rows_to_insert, client):
-    table_id = f"spheric-gecko-346716.nytaxi.{table_name}"
+    table_id = f"{client.project}.nytaxi.{table_name}"
     errors = client.insert_rows_json(
         table_id, rows_to_insert, row_ids=[None] * len(rows_to_insert)
     )
