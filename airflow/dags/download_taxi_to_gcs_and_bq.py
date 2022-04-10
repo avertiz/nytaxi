@@ -5,6 +5,7 @@ from airflow.utils.dates import days_ago
 from airflow.operators.python import PythonOperator
 
 from google.cloud import storage
+from google.cloud import bigquery
 
 # CLI arguments to provide: '{"year_month":"YYYY-MM"}'
 
