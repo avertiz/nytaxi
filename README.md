@@ -4,7 +4,8 @@ This project is meant to demonstrate a full ELT pipeline using Google Cloud Plat
 Services/Technology that will be used:
 - Google Cloud Storage to store raw data
 - Google BigQuery as the data warehouse
-- Google Cloud Composer to orchestrate/schedule pipeline
+- Google Cloud Composer (Airflow) to orchestrate/schedule pipeline
+- DBT to populate fact table and perform transformations to other target tables
 
 ## Prerequisites
 - A Google Cloud Platform Account
