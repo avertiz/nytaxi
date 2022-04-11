@@ -1,6 +1,5 @@
 from google.cloud import bigquery
 import requests
-from pprint import pprint
 
 def update_dim_table(table_name, rows_to_insert, client):
     table_id = f"{client.project}.nytaxi.{table_name}"

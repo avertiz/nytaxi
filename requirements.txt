@@ -2,3 +2,4 @@ pandas
 apache-airflow[celery]==2.2.3
 fsspec
 gcsfs
+dbt-bigquery

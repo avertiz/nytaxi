@@ -83,7 +83,6 @@ def create_trip_stage_table(client):
         bigquery.SchemaField("improvement_surcharge", "STRING", mode="NULLABLE"),
         bigquery.SchemaField("total_amount", "STRING", mode="NULLABLE"),
         bigquery.SchemaField("congestion_surcharge", "STRING", mode="NULLABLE"),
-        bigquery.SchemaField("row_hash", "STRING", mode="NULLABLE"),
     ]
     table = bigquery.Table(table_id, schema=schema)
     table = client.create_table(table)
@@ -95,8 +94,8 @@ def create_trip_table(client):
     table_id = f"{client.project}.nytaxi.trip_fact"
     schema = [
         bigquery.SchemaField("vendor_id", "INTEGER", mode="NULLABLE"),
-        bigquery.SchemaField("tpep_pickup_datetime", "TIMESTAMP", mode="NULLABLE"),
-        bigquery.SchemaField("tpep_dropoff_datetime", "TIMESTAMP", mode="NULLABLE"),
+        bigquery.SchemaField("tpep_pickup_datetime", "DATETIME", mode="NULLABLE"),
+        bigquery.SchemaField("tpep_dropoff_datetime", "DATETIME", mode="NULLABLE"),
         bigquery.SchemaField("passenger_count", "INTEGER", mode="NULLABLE"),
         bigquery.SchemaField("trip_distance", "FLOAT", mode="NULLABLE"),
         bigquery.SchemaField("rate_code_id", "INTEGER", mode="NULLABLE"),
@@ -112,7 +111,7 @@ def create_trip_table(client):
         bigquery.SchemaField("improvement_surcharge", "FLOAT", mode="NULLABLE"),
         bigquery.SchemaField("total_amount", "FLOAT", mode="NULLABLE"),
         bigquery.SchemaField("congestion_surcharge", "FLOAT", mode="NULLABLE"),
-        bigquery.SchemaField("row_hash", "STRING", mode="REQUIRED"),
+        bigquery.SchemaField("row_hash", "BYTES", mode="REQUIRED"),
     ]
     table = bigquery.Table(table_id, schema=schema)
     table = client.create_table(table)
